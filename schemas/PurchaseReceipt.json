@@ -1,0 +1,114 @@
+{
+  "$metadata": {
+    "type": "PurchaseReceipt",
+    "uris": {
+      "jsonLdContext": "https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/PurchaseReceipt.jsonld"
+    },
+    "version": "1.0"
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PurchaseReceipt",
+  "description": "Merchant-confirmed purchase receipt, issued by SecYour on behalf of a service provider. Refunds/chargebacks are handled by revoking the credential. Amounts are integer cents so verifiers can run ZK range queries (e.g. amountCents >= 7000).",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": ["string", "array", "object"]
+    },
+    "id": {
+      "type": "string"
+    },
+    "issuanceDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "expirationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issuer": {
+      "type": ["string", "object"],
+      "format": "uri",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": ["id"]
+    },
+    "type": {
+      "type": ["string", "array"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "credentialSubject": {
+      "title": "Credential subject",
+      "description": "The purchase being attested",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Credential subject ID",
+          "description": "DID of the purchaser",
+          "format": "uri",
+          "type": "string"
+        },
+        "productId": {
+          "title": "productId",
+          "description": "SecYour product id purchased",
+          "type": "string"
+        },
+        "amountCents": {
+          "title": "amountCents",
+          "description": "Purchase amount in integer cents",
+          "type": "integer"
+        },
+        "currency": {
+          "title": "currency",
+          "description": "ISO 4217 currency code",
+          "type": "string"
+        },
+        "tier": {
+          "title": "tier",
+          "description": "Product tier purchased (optional)",
+          "type": "string"
+        },
+        "orderRefHash": {
+          "title": "orderRefHash",
+          "description": "keccak256(orderRef ++ salt) hex; the raw order id stays with the merchant and user",
+          "type": "string"
+        },
+        "purchasedAt": {
+          "title": "purchasedAt",
+          "description": "Unix time of merchant confirmation",
+          "type": "integer"
+        },
+        "periodStart": {
+          "title": "periodStart",
+          "description": "Subscription billing period start, unix (omit for one-time)",
+          "type": "integer"
+        },
+        "periodEnd": {
+          "title": "periodEnd",
+          "description": "Subscription billing period end, unix (omit for one-time)",
+          "type": "integer"
+        }
+      },
+      "required": ["productId", "amountCents", "currency", "orderRefHash", "purchasedAt"]
+    },
+    "credentialSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "type"]
+    }
+  },
+  "required": ["@context", "id", "issuanceDate", "issuer", "type", "credentialSubject", "credentialSchema"]
+}

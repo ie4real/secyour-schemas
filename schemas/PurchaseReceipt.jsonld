@@ -1,0 +1,51 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "PurchaseReceipt": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:e17c06db-e98c-479d-966e-2069198e9eca#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "productId": {
+            "@id": "secyour-vocab:productId",
+            "@type": "xsd:string"
+          },
+          "amountCents": {
+            "@id": "secyour-vocab:amountCents",
+            "@type": "xsd:integer"
+          },
+          "currency": {
+            "@id": "secyour-vocab:currency",
+            "@type": "xsd:string"
+          },
+          "tier": {
+            "@id": "secyour-vocab:tier",
+            "@type": "xsd:string"
+          },
+          "orderRefHash": {
+            "@id": "secyour-vocab:orderRefHash",
+            "@type": "xsd:string"
+          },
+          "purchasedAt": {
+            "@id": "secyour-vocab:purchasedAt",
+            "@type": "xsd:integer"
+          },
+          "periodStart": {
+            "@id": "secyour-vocab:periodStart",
+            "@type": "xsd:integer"
+          },
+          "periodEnd": {
+            "@id": "secyour-vocab:periodEnd",
+            "@type": "xsd:integer"
+          }
+        },
+        "@id": "urn:uuid:1f34d1f6-8f5e-4763-a2e4-9f3ac13de3a1"
+      }
+    }
+  ]
+}
