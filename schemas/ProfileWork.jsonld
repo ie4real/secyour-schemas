@@ -1,0 +1,55 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "ProfileWork": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:891dbea3-a8ad-4fa0-9e65-6094c86473c0#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "employer": {
+            "@id": "secyour-vocab:employer",
+            "@type": "xsd:string"
+          },
+          "jobTitle": {
+            "@id": "secyour-vocab:jobTitle",
+            "@type": "xsd:string"
+          },
+          "workEmail": {
+            "@id": "secyour-vocab:workEmail",
+            "@type": "xsd:string"
+          },
+          "workStreet": {
+            "@id": "secyour-vocab:workStreet",
+            "@type": "xsd:string"
+          },
+          "workCity": {
+            "@id": "secyour-vocab:workCity",
+            "@type": "xsd:string"
+          },
+          "workRegion": {
+            "@id": "secyour-vocab:workRegion",
+            "@type": "xsd:string"
+          },
+          "workPostalCode": {
+            "@id": "secyour-vocab:workPostalCode",
+            "@type": "xsd:string"
+          },
+          "workCountry": {
+            "@id": "secyour-vocab:workCountry",
+            "@type": "xsd:string"
+          },
+          "attestation": {
+            "@id": "secyour-vocab:attestation",
+            "@type": "xsd:string"
+          }
+        },
+        "@id": "urn:uuid:c0f35402-bd81-4a67-a34e-19cd8e540005"
+      }
+    }
+  ]
+}

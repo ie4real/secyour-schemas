@@ -1,0 +1,31 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "ProfileGovernmentIds": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:e83fe959-ad79-4604-855b-7d3833eac919#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "taxId": {
+            "@id": "secyour-vocab:taxId",
+            "@type": "xsd:string"
+          },
+          "taxCountry": {
+            "@id": "secyour-vocab:taxCountry",
+            "@type": "xsd:string"
+          },
+          "attestation": {
+            "@id": "secyour-vocab:attestation",
+            "@type": "xsd:string"
+          }
+        },
+        "@id": "urn:uuid:acb76a1f-ae8a-4386-a375-ff7d4ec5f588"
+      }
+    }
+  ]
+}

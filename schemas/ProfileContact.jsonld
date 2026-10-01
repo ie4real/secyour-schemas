@@ -1,0 +1,51 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "ProfileContact": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:4f104711-824d-4fee-867b-07a9885949a1#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "phone": {
+            "@id": "secyour-vocab:phone",
+            "@type": "xsd:string"
+          },
+          "personalEmail": {
+            "@id": "secyour-vocab:personalEmail",
+            "@type": "xsd:string"
+          },
+          "homeStreet": {
+            "@id": "secyour-vocab:homeStreet",
+            "@type": "xsd:string"
+          },
+          "homeCity": {
+            "@id": "secyour-vocab:homeCity",
+            "@type": "xsd:string"
+          },
+          "homeRegion": {
+            "@id": "secyour-vocab:homeRegion",
+            "@type": "xsd:string"
+          },
+          "homePostalCode": {
+            "@id": "secyour-vocab:homePostalCode",
+            "@type": "xsd:string"
+          },
+          "homeCountry": {
+            "@id": "secyour-vocab:homeCountry",
+            "@type": "xsd:string"
+          },
+          "attestation": {
+            "@id": "secyour-vocab:attestation",
+            "@type": "xsd:string"
+          }
+        },
+        "@id": "urn:uuid:fffdb4d0-8241-42f1-b39b-7506f1421513"
+      }
+    }
+  ]
+}

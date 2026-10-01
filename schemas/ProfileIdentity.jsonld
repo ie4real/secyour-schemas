@@ -1,0 +1,35 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "ProfileIdentity": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:de7631f5-613a-431a-a5e4-5368a869006f#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "givenName": {
+            "@id": "secyour-vocab:givenName",
+            "@type": "xsd:string"
+          },
+          "familyName": {
+            "@id": "secyour-vocab:familyName",
+            "@type": "xsd:string"
+          },
+          "birthday": {
+            "@id": "secyour-vocab:birthday",
+            "@type": "xsd:integer"
+          },
+          "attestation": {
+            "@id": "secyour-vocab:attestation",
+            "@type": "xsd:string"
+          }
+        },
+        "@id": "urn:uuid:0e227b66-30b8-4058-a9a5-b4b08a592f12"
+      }
+    }
+  ]
+}

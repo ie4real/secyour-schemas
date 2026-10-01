@@ -1,0 +1,114 @@
+{
+  "$metadata": {
+    "type": "ProfileContact",
+    "uris": {
+      "jsonLdContext": "https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileContact.jsonld"
+    },
+    "version": "1.0"
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProfileContact",
+  "description": "The user's own contact values (phone, personal email, home address). attestation says who vouches for them: 'self-declared' = typed by the user; 'partner-verified' = checked by a verification partner.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": ["string", "array", "object"]
+    },
+    "id": {
+      "type": "string"
+    },
+    "issuanceDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "expirationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issuer": {
+      "type": ["string", "object"],
+      "format": "uri",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": ["id"]
+    },
+    "type": {
+      "type": ["string", "array"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "credentialSubject": {
+      "title": "Credential subject",
+      "description": "The person these values describe",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Credential subject ID",
+          "description": "DID of the subject",
+          "format": "uri",
+          "type": "string"
+        },
+        "phone": {
+          "title": "phone",
+          "description": "Phone number in E.164 format (e.g. +14155550123)",
+          "type": "string"
+        },
+        "personalEmail": {
+          "title": "personalEmail",
+          "description": "Personal email address",
+          "type": "string"
+        },
+        "homeStreet": {
+          "title": "homeStreet",
+          "description": "Home street address",
+          "type": "string"
+        },
+        "homeCity": {
+          "title": "homeCity",
+          "description": "Home city",
+          "type": "string"
+        },
+        "homeRegion": {
+          "title": "homeRegion",
+          "description": "Home state / province / region",
+          "type": "string"
+        },
+        "homePostalCode": {
+          "title": "homePostalCode",
+          "description": "Home postal code",
+          "type": "string"
+        },
+        "homeCountry": {
+          "title": "homeCountry",
+          "description": "Home country",
+          "type": "string"
+        },
+        "attestation": {
+          "title": "attestation",
+          "description": "self-declared | partner-verified | chip-verified",
+          "type": "string"
+        }
+      },
+      "required": ["phone", "attestation"]
+    },
+    "credentialSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "type"]
+    }
+  },
+  "required": ["@context", "id", "issuanceDate", "issuer", "type", "credentialSubject", "credentialSchema"]
+}

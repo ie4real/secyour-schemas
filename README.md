@@ -9,12 +9,24 @@ issuance time, and any verifier needs them to interpret proofs.
 | Type | JSON schema | JSON-LD context |
 |---|---|---|
 | `PurchaseReceipt` | `schemas/PurchaseReceipt.json` | `schemas/PurchaseReceipt.jsonld` |
+| `ProfileIdentity` | `schemas/ProfileIdentity.json` | `schemas/ProfileIdentity.jsonld` |
+| `ProfileContact` | `schemas/ProfileContact.json` | `schemas/ProfileContact.jsonld` |
+| `ProfileWork` | `schemas/ProfileWork.json` | `schemas/ProfileWork.jsonld` |
+| `ProfileGovernmentIds` | `schemas/ProfileGovernmentIds.json` | `schemas/ProfileGovernmentIds.jsonld` |
 
 Raw URLs (what goes into issuance requests / verifier queries):
 
 ```
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/PurchaseReceipt.json
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/PurchaseReceipt.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileIdentity.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileIdentity.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileContact.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileContact.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileWork.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileWork.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileGovernmentIds.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileGovernmentIds.jsonld
 ```
 
 ## PurchaseReceipt
@@ -35,3 +47,7 @@ Design notes:
 Schemas are immutable once published — issued credentials reference them by
 URL. To change a type, add a new version file (e.g. `PurchaseReceipt-v2.json`)
 rather than editing in place.
+
+## Profile credentials
+
+`attestation` is set by the issuer (SecYour), never by the app: `self-declared` values were typed by the user; `partner-verified` were checked by a verification partner.
