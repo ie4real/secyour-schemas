@@ -5,7 +5,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 status=0
-for t in PurchaseReceipt ProfileIdentity ProfileContact ProfileWork ProfileGovernmentIds; do
+for t in PurchaseReceipt ProfileIdentity ProfileContact ProfileWork ProfileGovernmentIds VerifiedHuman; do
   j="schemas/$t.json"; l="schemas/$t.jsonld"
   [ -f "$j" ] && [ -f "$l" ] || { echo "MISSING $t"; status=1; continue; }
   python3 - "$t" "$j" "$l" <<'PY' || status=1

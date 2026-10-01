@@ -13,6 +13,7 @@ issuance time, and any verifier needs them to interpret proofs.
 | `ProfileContact` | `schemas/ProfileContact.json` | `schemas/ProfileContact.jsonld` |
 | `ProfileWork` | `schemas/ProfileWork.json` | `schemas/ProfileWork.jsonld` |
 | `ProfileGovernmentIds` | `schemas/ProfileGovernmentIds.json` | `schemas/ProfileGovernmentIds.jsonld` |
+| `VerifiedHuman` | `schemas/VerifiedHuman.json` | `schemas/VerifiedHuman.jsonld` |
 
 Raw URLs (what goes into issuance requests / verifier queries):
 
@@ -27,6 +28,8 @@ https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Profile
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileWork.jsonld
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileGovernmentIds.json
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileGovernmentIds.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/VerifiedHuman.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/VerifiedHuman.jsonld
 ```
 
 ## PurchaseReceipt
