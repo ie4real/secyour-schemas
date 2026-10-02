@@ -1,0 +1,123 @@
+{
+  "$metadata": {
+    "type": "Passport",
+    "uris": {
+      "jsonLdContext": "https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Passport.jsonld"
+    },
+    "version": "1.0"
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Passport",
+  "description": "A verification partner checked the holder's passport on the date in checkedAt. The scan and portrait appear only as SHA-256 hashes, split into two 128-bit halves; no image is in this credential.",
+  "type": "object",
+  "properties": {
+    "@context": { "type": ["string", "array", "object"] },
+    "id": { "type": "string" },
+    "issuanceDate": { "format": "date-time", "type": "string" },
+    "expirationDate": { "format": "date-time", "type": "string" },
+    "issuer": {
+      "type": ["string", "object"],
+      "format": "uri",
+      "properties": { "id": { "format": "uri", "type": "string" } },
+      "required": ["id"]
+    },
+    "type": { "type": ["string", "array"], "items": { "type": "string" } },
+    "credentialSubject": {
+      "title": "Credential subject",
+      "description": "The passport holder",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Credential subject ID",
+          "description": "DID of the subject",
+          "format": "uri",
+          "type": "string"
+        },
+        "attestation": {
+          "title": "attestation",
+          "description": "self-declared | partner-verified | chip-verified",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "givenName",
+          "description": "Given name as printed on the passport",
+          "type": "string"
+        },
+        "familyName": {
+          "title": "familyName",
+          "description": "Family name as printed on the passport",
+          "type": "string"
+        },
+        "birthday": {
+          "title": "birthday",
+          "description": "Date of birth, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "nationality": {
+          "title": "nationality",
+          "description": "Nationality, ISO 3166-1 alpha-3, uppercase",
+          "type": "string"
+        },
+        "issuingCountry": {
+          "title": "issuingCountry",
+          "description": "Issuing country, ISO 3166-1 alpha-3, uppercase",
+          "type": "string"
+        },
+        "documentNumber": {
+          "title": "documentNumber",
+          "description": "Passport number",
+          "type": "string"
+        },
+        "issuedAt": {
+          "title": "issuedAt",
+          "description": "Date of issue, yyyymmdd (UTC). Optional: not every partner returns it",
+          "type": "integer"
+        },
+        "expiresOn": {
+          "title": "expiresOn",
+          "description": "Document expiry date, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "checkedAt": {
+          "title": "checkedAt",
+          "description": "Date of the verification, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "scanHashHi": {
+          "title": "scanHashHi",
+          "description": "First 128 bits of the SHA-256 of the passport scan, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "scanHashLo": {
+          "title": "scanHashLo",
+          "description": "Last 128 bits of the SHA-256 of the passport scan, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "portraitHashHi": {
+          "title": "portraitHashHi",
+          "description": "First 128 bits of the SHA-256 of the portrait image, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "portraitHashLo": {
+          "title": "portraitHashLo",
+          "description": "Last 128 bits of the SHA-256 of the portrait image, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      "required": ["attestation", "givenName", "familyName", "birthday", "nationality", "issuingCountry", "documentNumber", "expiresOn", "checkedAt", "scanHashHi", "scanHashLo", "portraitHashHi", "portraitHashLo"]
+    },
+    "credentialSchema": {
+      "type": "object",
+      "properties": {
+        "id": { "format": "uri", "type": "string" },
+        "type": { "type": "string" }
+      },
+      "required": ["id", "type"]
+    }
+  },
+  "required": ["@context", "id", "issuanceDate", "issuer", "type", "credentialSubject", "credentialSchema"]
+}

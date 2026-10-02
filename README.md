@@ -14,6 +14,7 @@ issuance time, and any verifier needs them to interpret proofs.
 | `ProfileWork` | `schemas/ProfileWork.json` | `schemas/ProfileWork.jsonld` |
 | `ProfileGovernmentIds` | `schemas/ProfileGovernmentIds.json` | `schemas/ProfileGovernmentIds.jsonld` |
 | `VerifiedHuman` | `schemas/VerifiedHuman.json` | `schemas/VerifiedHuman.jsonld` |
+| `Passport` | `schemas/Passport.json` | `schemas/Passport.jsonld` |
 
 Raw URLs (what goes into issuance requests / verifier queries):
 
@@ -30,6 +31,8 @@ https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Profile
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProfileGovernmentIds.jsonld
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/VerifiedHuman.json
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/VerifiedHuman.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Passport.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Passport.jsonld
 ```
 
 ## PurchaseReceipt
@@ -54,3 +57,17 @@ rather than editing in place.
 ## Profile credentials
 
 `attestation` is set by the issuer (SecYour), never by the app: `self-declared` values were typed by the user; `partner-verified` were checked by a verification partner.
+
+## Passport
+
+Partner-checked passport. Claims: `attestation`, `givenName`, `familyName`,
+`birthday`, `nationality`, `issuingCountry`, `documentNumber`, `issuedAt`
+(optional), `expiresOn`, `checkedAt`, `scanHashHi`, `scanHashLo`,
+`portraitHashHi`, `portraitHashLo`. Expiry of the credential = document expiry
+(`expiresOn`). `attestation` is `chip-verified` only when the chip was read and
+its signature verified, otherwise `partner-verified`.
+
+- Countries are ISO 3166-1 alpha-3, uppercase; dates are yyyymmdd integers (UTC).
+- Each image hash is a SHA-256 split into two strings of 32 lower-case hex
+  characters (`...Hi` first half, `...Lo` second half). Strings, not integers,
+  because a 128-bit number does not survive JSON number handling.

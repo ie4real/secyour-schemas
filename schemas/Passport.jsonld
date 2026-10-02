@@ -1,0 +1,75 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "Passport": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:891dbea3-a8ad-4fa0-9e65-6094c86473c0#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "attestation": {
+            "@id": "secyour-vocab:attestation",
+            "@type": "xsd:string"
+          },
+          "givenName": {
+            "@id": "secyour-vocab:givenName",
+            "@type": "xsd:string"
+          },
+          "familyName": {
+            "@id": "secyour-vocab:familyName",
+            "@type": "xsd:string"
+          },
+          "birthday": {
+            "@id": "secyour-vocab:birthday",
+            "@type": "xsd:integer"
+          },
+          "nationality": {
+            "@id": "secyour-vocab:nationality",
+            "@type": "xsd:string"
+          },
+          "issuingCountry": {
+            "@id": "secyour-vocab:issuingCountry",
+            "@type": "xsd:string"
+          },
+          "documentNumber": {
+            "@id": "secyour-vocab:documentNumber",
+            "@type": "xsd:string"
+          },
+          "issuedAt": {
+            "@id": "secyour-vocab:issuedAt",
+            "@type": "xsd:integer"
+          },
+          "expiresOn": {
+            "@id": "secyour-vocab:expiresOn",
+            "@type": "xsd:integer"
+          },
+          "checkedAt": {
+            "@id": "secyour-vocab:checkedAt",
+            "@type": "xsd:integer"
+          },
+          "scanHashHi": {
+            "@id": "secyour-vocab:scanHashHi",
+            "@type": "xsd:string"
+          },
+          "scanHashLo": {
+            "@id": "secyour-vocab:scanHashLo",
+            "@type": "xsd:string"
+          },
+          "portraitHashHi": {
+            "@id": "secyour-vocab:portraitHashHi",
+            "@type": "xsd:string"
+          },
+          "portraitHashLo": {
+            "@id": "secyour-vocab:portraitHashLo",
+            "@type": "xsd:string"
+          }
+        },
+        "@id": "urn:uuid:33505167-3bb3-4ea5-b172-39fdc4d0a37b"
+      }
+    }
+  ]
+}
