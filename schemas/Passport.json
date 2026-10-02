@@ -35,7 +35,7 @@
         },
         "attestation": {
           "title": "attestation",
-          "description": "self-declared | partner-verified | chip-verified",
+          "description": "partner-verified | chip-verified",
           "type": "string"
         },
         "givenName": {
@@ -56,12 +56,14 @@
         "nationality": {
           "title": "nationality",
           "description": "Nationality, ISO 3166-1 alpha-3, uppercase",
-          "type": "string"
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
         },
         "issuingCountry": {
           "title": "issuingCountry",
           "description": "Issuing country, ISO 3166-1 alpha-3, uppercase",
-          "type": "string"
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
         },
         "documentNumber": {
           "title": "documentNumber",
