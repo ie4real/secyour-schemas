@@ -103,8 +103,10 @@ Partner-checked proof of address. Required claims: `attestation`, `givenName`,
 `other`), `documentIssuer` (for example Electric Ireland), `issuedAt` (the
 document's date), `street`, `city`, `addressCountry`, `checkedAt`,
 `scanHashHi`, `scanHashLo`. Optional claims: `region`, `postalCode`.
-The address is split into parts so a verifier can ask only what it needs (for
-example `addressCountry = IRL`). There is no expiry claim. `attestation` is
+`givenName` and `familyName` are the names from the holder's verified ID (a
+passport or driving licence); the partner matched them to the name on the
+document. The address is split into parts so a verifier can ask only what it
+needs (for example `addressCountry = IRL`). There is no expiry claim. `attestation` is
 `partner-verified`.
 
 - The issuer of the document is `documentIssuer`, not `issuer`: a claim named

@@ -72,12 +72,12 @@
         },
         "givenName": {
           "title": "givenName",
-          "description": "Given name as printed on the document; matched to the holder's ID at the check",
+          "description": "Given name from the holder's verified ID; the partner matched it to the name on the document.",
           "type": "string"
         },
         "familyName": {
           "title": "familyName",
-          "description": "Family name as printed on the document; matched to the holder's ID at the check",
+          "description": "Family name from the holder's verified ID; the partner matched it to the name on the document.",
           "type": "string"
         },
         "documentType": {
