@@ -1,0 +1,254 @@
+{
+  "$metadata": {
+    "type": "DrivingLicence",
+    "uris": {
+      "jsonLdContext": "https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/DrivingLicence.jsonld"
+    },
+    "version": "1.0"
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DrivingLicence",
+  "description": "A verification partner checked the holder's driving licence on the date in checkedAt. The front, back and portrait images appear only as SHA-256 hashes, split into two 128-bit halves; no image is in this credential.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": [
+        "string",
+        "array",
+        "object"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "issuanceDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "expirationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issuer": {
+      "type": [
+        "string",
+        "object"
+      ],
+      "format": "uri",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "type": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "credentialSubject": {
+      "title": "Credential subject",
+      "description": "The driving licence holder",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Credential subject ID",
+          "description": "DID of the subject",
+          "format": "uri",
+          "type": "string"
+        },
+        "attestation": {
+          "title": "attestation",
+          "description": "partner-verified",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "givenName",
+          "description": "Given name as printed on the licence",
+          "type": "string"
+        },
+        "familyName": {
+          "title": "familyName",
+          "description": "Family name as printed on the licence",
+          "type": "string"
+        },
+        "birthday": {
+          "title": "birthday",
+          "description": "Date of birth, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "documentNumber": {
+          "title": "documentNumber",
+          "description": "Licence number",
+          "type": "string"
+        },
+        "issuingCountry": {
+          "title": "issuingCountry",
+          "description": "Issuing country, ISO 3166-1 alpha-3, uppercase",
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "issuingAuthority": {
+          "title": "issuingAuthority",
+          "description": "Issuing authority as printed, for example RSA or a US state DMV. Optional",
+          "type": "string"
+        },
+        "issuedAt": {
+          "title": "issuedAt",
+          "description": "Date of issue, yyyymmdd (UTC). Optional: not every partner returns it",
+          "type": "integer"
+        },
+        "expiresOn": {
+          "title": "expiresOn",
+          "description": "Document expiry date, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "checkedAt": {
+          "title": "checkedAt",
+          "description": "Date of the verification, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "street": {
+          "title": "street",
+          "description": "Street address as printed. Optional: only licences that print an address",
+          "type": "string"
+        },
+        "city": {
+          "title": "city",
+          "description": "City as printed. Optional: only licences that print an address",
+          "type": "string"
+        },
+        "region": {
+          "title": "region",
+          "description": "Region, county or state as printed. Optional: only licences that print an address",
+          "type": "string"
+        },
+        "postalCode": {
+          "title": "postalCode",
+          "description": "Postal code as printed. Optional: only licences that print an address",
+          "type": "string"
+        },
+        "addressCountry": {
+          "title": "addressCountry",
+          "description": "Country of the printed address, ISO 3166-1 alpha-3, uppercase. Optional: only licences that print an address",
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "sex": {
+          "title": "sex",
+          "description": "Sex as printed: M, F or X. Omitted when unknown",
+          "type": "string",
+          "enum": [
+            "M",
+            "F",
+            "X"
+          ]
+        },
+        "categories": {
+          "title": "categories",
+          "description": "Vehicle categories, comma-separated, upper case, for example AM,B,BE. Optional",
+          "type": "string",
+          "pattern": "^[A-Z0-9]+(,[A-Z0-9]+)*$"
+        },
+        "heightCm": {
+          "title": "heightCm",
+          "description": "Height in centimetres, as printed. Optional",
+          "type": "integer"
+        },
+        "weightKg": {
+          "title": "weightKg",
+          "description": "Weight in kilograms, as printed. Optional",
+          "type": "integer"
+        },
+        "eyeColour": {
+          "title": "eyeColour",
+          "description": "Eye colour as printed. Optional",
+          "type": "string"
+        },
+        "frontHashHi": {
+          "title": "frontHashHi",
+          "description": "First 128 bits of the SHA-256 of the front-of-licence image, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "frontHashLo": {
+          "title": "frontHashLo",
+          "description": "Last 128 bits of the SHA-256 of the front-of-licence image, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "backHashHi": {
+          "title": "backHashHi",
+          "description": "First 128 bits of the SHA-256 of the back-of-licence image, 32 lower-case hex characters. Optional: single-sided licences have none",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "backHashLo": {
+          "title": "backHashLo",
+          "description": "Last 128 bits of the SHA-256 of the back-of-licence image, 32 lower-case hex characters. Optional: single-sided licences have none",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "portraitHashHi": {
+          "title": "portraitHashHi",
+          "description": "First 128 bits of the SHA-256 of the portrait image, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "portraitHashLo": {
+          "title": "portraitHashLo",
+          "description": "Last 128 bits of the SHA-256 of the portrait image, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      "required": [
+        "attestation",
+        "givenName",
+        "familyName",
+        "birthday",
+        "documentNumber",
+        "issuingCountry",
+        "expiresOn",
+        "checkedAt",
+        "frontHashHi",
+        "frontHashLo",
+        "portraitHashHi",
+        "portraitHashLo"
+      ]
+    },
+    "credentialSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "id",
+    "issuanceDate",
+    "issuer",
+    "type",
+    "credentialSubject",
+    "credentialSchema"
+  ]
+}

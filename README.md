@@ -15,6 +15,8 @@ issuance time, and any verifier needs them to interpret proofs.
 | `ProfileGovernmentIds` | `schemas/ProfileGovernmentIds.json` | `schemas/ProfileGovernmentIds.jsonld` |
 | `VerifiedHuman` | `schemas/VerifiedHuman.json` | `schemas/VerifiedHuman.jsonld` |
 | `Passport` | `schemas/Passport.json` | `schemas/Passport.jsonld` |
+| `DrivingLicence` | `schemas/DrivingLicence.json` | `schemas/DrivingLicence.jsonld` |
+| `ProofOfAddress` | `schemas/ProofOfAddress.json` | `schemas/ProofOfAddress.jsonld` |
 
 Raw URLs (what goes into issuance requests / verifier queries):
 
@@ -33,6 +35,10 @@ https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Verifie
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/VerifiedHuman.jsonld
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Passport.json
 https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/Passport.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/DrivingLicence.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/DrivingLicence.jsonld
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProofOfAddress.json
+https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProofOfAddress.jsonld
 ```
 
 ## PurchaseReceipt
@@ -71,3 +77,40 @@ its signature verified, otherwise `partner-verified`.
 - Each image hash is a SHA-256 split into two strings of 32 lower-case hex
   characters (`...Hi` first half, `...Lo` second half). Strings, not integers,
   because a 128-bit number does not survive JSON number handling.
+
+## DrivingLicence
+
+Partner-checked driving licence. Required claims: `attestation`, `givenName`,
+`familyName`, `birthday`, `documentNumber`, `issuingCountry`, `expiresOn`,
+`checkedAt`, `frontHashHi`, `frontHashLo`, `portraitHashHi`, `portraitHashLo`.
+Optional claims: `issuedAt`, `issuingAuthority` (for example RSA or a US state
+DMV), the address parts `street`, `city`, `region`, `postalCode`,
+`addressCountry` (only licences that print an address), `sex` (`M`, `F` or `X`,
+omitted when unknown), `categories` (comma-separated, upper case, for example
+`AM,B,BE`), `heightCm`, `weightKg` (integers), `eyeColour`, and
+`backHashHi`, `backHashLo` (single-sided licences have no back).
+Expiry of the credential = document expiry (`expiresOn`), set by the issuer.
+`attestation` is `partner-verified`.
+
+- Countries are ISO 3166-1 alpha-3, uppercase; dates are yyyymmdd integers (UTC).
+- Each image hash is a SHA-256 split into two strings of 32 lower-case hex
+  characters (`...Hi` first half, `...Lo` second half), as in `Passport`.
+
+## ProofOfAddress
+
+Partner-checked proof of address. Required claims: `attestation`, `givenName`,
+`familyName`, `documentType` (`utility_bill`, `bank_statement`, `government` or
+`other`), `documentIssuer` (for example Electric Ireland), `issuedAt` (the
+document's date), `street`, `city`, `addressCountry`, `checkedAt`,
+`scanHashHi`, `scanHashLo`. Optional claims: `region`, `postalCode`.
+`givenName` and `familyName` are the names from the holder's verified ID (a
+passport or driving licence); the partner matched them to the name on the
+document. The address is split into parts so a verifier can ask only what it
+needs (for example `addressCountry = IRL`). There is no expiry claim. `attestation` is
+`partner-verified`.
+
+- The issuer of the document is `documentIssuer`, not `issuer`: a claim named
+  `issuer` clashes with the protected `issuer` term of the W3C credentials
+  context and breaks JSON-LD expansion.
+- `addressCountry` is ISO 3166-1 alpha-3, uppercase; dates are yyyymmdd
+  integers (UTC); the scan hash is split as in `Passport`.
