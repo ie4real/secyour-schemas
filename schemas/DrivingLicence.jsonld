@@ -1,0 +1,123 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "DrivingLicence": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:bf990840-35ba-432f-9636-7af987dcb6a6#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "attestation": {
+            "@id": "secyour-vocab:attestation",
+            "@type": "xsd:string"
+          },
+          "givenName": {
+            "@id": "secyour-vocab:givenName",
+            "@type": "xsd:string"
+          },
+          "familyName": {
+            "@id": "secyour-vocab:familyName",
+            "@type": "xsd:string"
+          },
+          "birthday": {
+            "@id": "secyour-vocab:birthday",
+            "@type": "xsd:integer"
+          },
+          "documentNumber": {
+            "@id": "secyour-vocab:documentNumber",
+            "@type": "xsd:string"
+          },
+          "issuingCountry": {
+            "@id": "secyour-vocab:issuingCountry",
+            "@type": "xsd:string"
+          },
+          "issuingAuthority": {
+            "@id": "secyour-vocab:issuingAuthority",
+            "@type": "xsd:string"
+          },
+          "issuedAt": {
+            "@id": "secyour-vocab:issuedAt",
+            "@type": "xsd:integer"
+          },
+          "expiresOn": {
+            "@id": "secyour-vocab:expiresOn",
+            "@type": "xsd:integer"
+          },
+          "checkedAt": {
+            "@id": "secyour-vocab:checkedAt",
+            "@type": "xsd:integer"
+          },
+          "street": {
+            "@id": "secyour-vocab:street",
+            "@type": "xsd:string"
+          },
+          "city": {
+            "@id": "secyour-vocab:city",
+            "@type": "xsd:string"
+          },
+          "region": {
+            "@id": "secyour-vocab:region",
+            "@type": "xsd:string"
+          },
+          "postalCode": {
+            "@id": "secyour-vocab:postalCode",
+            "@type": "xsd:string"
+          },
+          "addressCountry": {
+            "@id": "secyour-vocab:addressCountry",
+            "@type": "xsd:string"
+          },
+          "sex": {
+            "@id": "secyour-vocab:sex",
+            "@type": "xsd:string"
+          },
+          "categories": {
+            "@id": "secyour-vocab:categories",
+            "@type": "xsd:string"
+          },
+          "heightCm": {
+            "@id": "secyour-vocab:heightCm",
+            "@type": "xsd:integer"
+          },
+          "weightKg": {
+            "@id": "secyour-vocab:weightKg",
+            "@type": "xsd:integer"
+          },
+          "eyeColour": {
+            "@id": "secyour-vocab:eyeColour",
+            "@type": "xsd:string"
+          },
+          "frontHashHi": {
+            "@id": "secyour-vocab:frontHashHi",
+            "@type": "xsd:string"
+          },
+          "frontHashLo": {
+            "@id": "secyour-vocab:frontHashLo",
+            "@type": "xsd:string"
+          },
+          "backHashHi": {
+            "@id": "secyour-vocab:backHashHi",
+            "@type": "xsd:string"
+          },
+          "backHashLo": {
+            "@id": "secyour-vocab:backHashLo",
+            "@type": "xsd:string"
+          },
+          "portraitHashHi": {
+            "@id": "secyour-vocab:portraitHashHi",
+            "@type": "xsd:string"
+          },
+          "portraitHashLo": {
+            "@id": "secyour-vocab:portraitHashLo",
+            "@type": "xsd:string"
+          }
+        },
+        "@id": "urn:uuid:eb505d9b-f87e-454e-beeb-6462680fec6c"
+      }
+    }
+  ]
+}

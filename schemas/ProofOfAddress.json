@@ -1,0 +1,189 @@
+{
+  "$metadata": {
+    "type": "ProofOfAddress",
+    "uris": {
+      "jsonLdContext": "https://raw.githubusercontent.com/ie4real/secyour-schemas/master/schemas/ProofOfAddress.jsonld"
+    },
+    "version": "1.0"
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProofOfAddress",
+  "description": "A verification partner checked the holder's proof of address on the date in checkedAt. The document appears only as a SHA-256 hash, split into two 128-bit halves; no image or PDF is in this credential.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": [
+        "string",
+        "array",
+        "object"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "issuanceDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "expirationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issuer": {
+      "type": [
+        "string",
+        "object"
+      ],
+      "format": "uri",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "type": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "credentialSubject": {
+      "title": "Credential subject",
+      "description": "The address holder",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Credential subject ID",
+          "description": "DID of the subject",
+          "format": "uri",
+          "type": "string"
+        },
+        "attestation": {
+          "title": "attestation",
+          "description": "partner-verified",
+          "type": "string"
+        },
+        "givenName": {
+          "title": "givenName",
+          "description": "Given name as printed on the document; matched to the holder's ID at the check",
+          "type": "string"
+        },
+        "familyName": {
+          "title": "familyName",
+          "description": "Family name as printed on the document; matched to the holder's ID at the check",
+          "type": "string"
+        },
+        "documentType": {
+          "title": "documentType",
+          "description": "Kind of document: utility_bill, bank_statement, government or other",
+          "type": "string",
+          "enum": [
+            "utility_bill",
+            "bank_statement",
+            "government",
+            "other"
+          ]
+        },
+        "documentIssuer": {
+          "title": "documentIssuer",
+          "description": "Organisation that issued the document, for example Electric Ireland",
+          "type": "string"
+        },
+        "issuedAt": {
+          "title": "issuedAt",
+          "description": "Date of the document, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "street": {
+          "title": "street",
+          "description": "Street address as printed",
+          "type": "string"
+        },
+        "city": {
+          "title": "city",
+          "description": "City as printed",
+          "type": "string"
+        },
+        "region": {
+          "title": "region",
+          "description": "Region, county or state as printed. Optional",
+          "type": "string"
+        },
+        "postalCode": {
+          "title": "postalCode",
+          "description": "Postal code as printed. Optional",
+          "type": "string"
+        },
+        "addressCountry": {
+          "title": "addressCountry",
+          "description": "Country of the address, ISO 3166-1 alpha-3, uppercase",
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "checkedAt": {
+          "title": "checkedAt",
+          "description": "Date of the verification, yyyymmdd (UTC)",
+          "type": "integer"
+        },
+        "scanHashHi": {
+          "title": "scanHashHi",
+          "description": "First 128 bits of the SHA-256 of the document image or PDF as received, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "scanHashLo": {
+          "title": "scanHashLo",
+          "description": "Last 128 bits of the SHA-256 of the document image or PDF as received, 32 lower-case hex characters",
+          "type": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        }
+      },
+      "required": [
+        "attestation",
+        "givenName",
+        "familyName",
+        "documentType",
+        "documentIssuer",
+        "issuedAt",
+        "street",
+        "city",
+        "addressCountry",
+        "checkedAt",
+        "scanHashHi",
+        "scanHashLo"
+      ]
+    },
+    "credentialSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uri",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "id",
+    "issuanceDate",
+    "issuer",
+    "type",
+    "credentialSubject",
+    "credentialSchema"
+  ]
+}

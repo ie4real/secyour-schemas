@@ -1,0 +1,75 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "ProofOfAddress": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "secyour-vocab": "urn:uuid:869e9baa-f99b-45eb-9712-cdc970c3d0b8#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "attestation": {
+            "@id": "secyour-vocab:attestation",
+            "@type": "xsd:string"
+          },
+          "givenName": {
+            "@id": "secyour-vocab:givenName",
+            "@type": "xsd:string"
+          },
+          "familyName": {
+            "@id": "secyour-vocab:familyName",
+            "@type": "xsd:string"
+          },
+          "documentType": {
+            "@id": "secyour-vocab:documentType",
+            "@type": "xsd:string"
+          },
+          "documentIssuer": {
+            "@id": "secyour-vocab:documentIssuer",
+            "@type": "xsd:string"
+          },
+          "issuedAt": {
+            "@id": "secyour-vocab:issuedAt",
+            "@type": "xsd:integer"
+          },
+          "street": {
+            "@id": "secyour-vocab:street",
+            "@type": "xsd:string"
+          },
+          "city": {
+            "@id": "secyour-vocab:city",
+            "@type": "xsd:string"
+          },
+          "region": {
+            "@id": "secyour-vocab:region",
+            "@type": "xsd:string"
+          },
+          "postalCode": {
+            "@id": "secyour-vocab:postalCode",
+            "@type": "xsd:string"
+          },
+          "addressCountry": {
+            "@id": "secyour-vocab:addressCountry",
+            "@type": "xsd:string"
+          },
+          "checkedAt": {
+            "@id": "secyour-vocab:checkedAt",
+            "@type": "xsd:integer"
+          },
+          "scanHashHi": {
+            "@id": "secyour-vocab:scanHashHi",
+            "@type": "xsd:string"
+          },
+          "scanHashLo": {
+            "@id": "secyour-vocab:scanHashLo",
+            "@type": "xsd:string"
+          }
+        },
+        "@id": "urn:uuid:84fb6b1f-6b9a-4e50-a78d-7dde15352dda"
+      }
+    }
+  ]
+}
